@@ -1,0 +1,24 @@
+<Playlist Version="1.0">
+<Add Test="MAT1.Features._0Authentification.Authentification1Feature.Alissia_Connexion" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._14_Ajout_Document_Dans_Onglet_Document" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._4_CreationDUneNote" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._16_Creation_Et_Modification_Tarif" />
+<Add Test="MAT1.Features.PageAccueil._4_GestionPageAccueilFeature._19_Modification_Pave_De_Delai" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._11_Lancement_DUne_Etape_De_Valorisation" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._7_RechercheDUnTiersViaLaRechercheRapide" />
+<Add Test="MAT1.Features._3Tarifs._2GestionTarifsFeature._17_Association_Nouveau_Tarif_A_Un_Dossier" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature.XXXXXXXXXXX" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._3_ParametrageDUneAdressePrincipaleDeTiers" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._12_Saisie_DUn_Debours_Dans_Un_Dossier" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._2_ParametrageDUnTypeDeTiers" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._6_ParametrageDUneRegleDeCorrespondanceBrevets" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._10_Lancement_DUne_Etape_De_Procedure_Brevet" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._09_Creation_DUn_Dossier_Brevet" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._15_Ajout_Logo" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._5_CreationDUnContact" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._17_Association_Nouveau_Tarif_A_Un_Dossier" />
+<Add Test="MAT1.Features._2Dossiers._2GestionDossiersBrevetsFeature._13_Recherche_Dossier_Marque" />
+<Add Test="MAT1.Features._3Tarifs._2GestionTarifsFeature._16_Creation_Et_Modification_Tarif" />
+<Add Test="MAT1.Features._1Tiers.XxxxxxxxxxxxFeature._8_RechercheDUnTiersViaLaRechercheApprofondie" />
+<Add Test="MAT1.Features.PageAccueil._4_GestionPageAccueilFeature._18_Modification_Paves" />
+</Playlist>

@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset='utf-8' />
+    <meta name='description' content='' />
+    <meta name='robots' content='noodp, noydir' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://cdn.rawgit.com/anshooarora/extentreports-csharp/3b6cc04fd241b9782606e57fc5e84f0e42172c08/dist/css/extent.css' type='text/css' rel='stylesheet' />
+
+    <title>ExtentReports</title>
+
+</head>
+    
+
+
+	<body class='extent standard default hide-overflow bdd'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+		<nav>
+    <div class="nav-wrapper">
+        <a href="http://extentreports.relevantcodes.com" class="brand-logo blue darken-3">Extent</a>
+
+        <!-- slideout menu -->
+        <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+            <li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+                        <li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+        </ul>
+
+        <!-- report name -->
+        <span class='report-name'>ExtentReports</span>
+
+        <!-- report headline -->
+        <span class='report-headline'></span>
+
+        <!-- nav-right -->
+        <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+
+            <a>
+                <span class='suite-start-time label blue darken-3'>29/03/2020 18:31:06 Paris, Madrid</span>
+            </a>
+            <a>
+                <span class="label blue darken-3">3.1.0</span>
+            </a>
+        </ul>
+    </div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+            
+<div id='test-view' class='view'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- test toggle -->
+            <div class='chip transparent'>
+                <a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+                    <i class='material-icons'>warning</i> Status
+                </a>
+                <ul id='tests-toggle' class='dropdown-content'>
+                    <li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+                    <li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+                    <li status='error'><a href='#!'>Error <i class='material-icons red-text lighten-2'>error</i></a></li>
+                    <li status='warning'><a href='#!'>Warning <i class='material-icons orange-text'>warning</i></a></li>
+                    <li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+                    <li class='divider'></li>
+                    <li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+                </ul>
+            </div>
+            <!-- test toggle -->
+
+            <!-- category toggle -->
+            <!-- category toggle -->
+
+            <!-- clear filters -->
+            <div class='chip transparent hide'>
+                <a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+                    <i class='material-icons'>close</i> Clear
+                </a>
+            </div>
+            <!-- clear filters -->
+
+            <!-- enable dashboard -->
+
+            <div id='toggle-test-view-charts' class='chip transparent'>
+                    <a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+                        <i class='material-icons'>track_changes</i> Dashboard
+                    </a>
+            </div>
+            <!-- enable dashboard -->
+
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+
+
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box'>
+                    <canvas id='parent-analysis' width='100' height='80'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span><span class='strong'>0</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong'>6</span> test(s) failed, <span class='strong'>0</span> others
+                </div>
+            </div>
+        </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Scenarios</div>
+                    <div class='chart-box'>
+                        <canvas id='child-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>0</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>21</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Steps</div>
+                    <div class='chart-box'>
+                        <canvas id='grandchild-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>21</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>21</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Tests</h5>
+
+            <ul id='test-collection' class='test-collection'>
+
+
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='1'>
+                        <div class='test-heading'>
+                            <span class='test-name'>01 Authentification</span>
+                            <span class='test-time'>29/03/2020 18:31:06</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='2' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.2235920</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            01 Authentification
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='3' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='4' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-31-21.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='5'>
+                        <div class='test-heading'>
+                            <span class='test-name'>02 Tiers</span>
+                            <span class='test-time'>29/03/2020 18:31:26</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='6' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.6372797</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            02 Création Tiers
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='7' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='8' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-31-40.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='9' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.7776655</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            03 Paramétrage Type de Tiers
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='10' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='11' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-31-56.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='12' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.8089831</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            04 Paramétrage Adresse Principale de tiers
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='13' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='14' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-32-11.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='15' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.9253810</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            05 Création Note
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='16' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='17' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-32-26.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='18' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.7501074</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            06 Création Contact
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='19' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='20' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-32-41.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='21' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.1166423</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            07 Paramétrage règle De Correspondance Brevets
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='22' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='23' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-32-57.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='24' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.2539590</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            08 Recherche Tiers via Recherche Rapide
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='25' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='26' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-33-12.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='27' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.0015875</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            09 Recherche tiers via Recherhe Approfondie
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='28' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='29' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-33-28.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='30'>
+                        <div class='test-heading'>
+                            <span class='test-name'>03 DossiersBrevets</span>
+                            <span class='test-time'>29/03/2020 18:33:29</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='31' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.4244606</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            10 Création Dossier Brevets
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='32' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='33' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-33-44.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='34' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.5928369</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            11 Lancement Etape de Procèdure Brevets
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='35' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='36' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-33-59.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='37' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:12.7936554</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            12 Lancement Etape de valorisation
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='38' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='39' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-34-12.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='40' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.2889625</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            13 Saisir Débours dans un dossier
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='41' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='42' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-34-28.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='43' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.6662433</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            14 Recherche Dossier Marque
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='44' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='45' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-34-43.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='46' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.1078504</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            15 Ajout Document dans Onglet Documents
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='47' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='48' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-34-59.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='49' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.4729540</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            16 Ajout Logo
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='50' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='51' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-35-15.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='52'>
+                        <div class='test-heading'>
+                            <span class='test-name'>04 Tarifs</span>
+                            <span class='test-time'>29/03/2020 18:35:15</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='53' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.7030352</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            17 Création et modification Tarif
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='54' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='55' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-35-30.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='56' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.7002852</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            18 Association tarif A un Dossier
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='57' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='58' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-35-45.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='59'>
+                        <div class='test-heading'>
+                            <span class='test-name'>05 PageAccueil</span>
+                            <span class='test-time'>29/03/2020 18:35:46</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='60' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:15.2140252</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            19 Modification Pavés
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='61' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='62' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-36-1.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='63' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.8233879</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            20 Modification Pavés de Détai
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='64' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='65' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-36-16.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='66'>
+                        <div class='test-heading'>
+                            <span class='test-name'>06 ValorisationDevis</span>
+                            <span class='test-time'>29/03/2020 18:36:17</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='67' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:14.8653691</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            21 Saisie des heures
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='68' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        naviguer à l'application Alissia Formation
+                                                                                                                                                                    </li>
+                                                    <li test-id='69' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        entrer le company login 'Moncey'
+                                                            <ul class='screenshots right'>
+                                                                    <li><a data-featherlight="image" href="..\..\Screenshots\ErrorScreenshots\Alissia_Screenshot29-3-2020_18-36-31.Png"><i class='material-icons'>panorama</i></a></li>
+                                                            </ul>
+                                                                                                                                                                            <div class='pre'>Could not find element by: By.Id: CompanyLogin</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <!-- subview left -->
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='test-name'></h5>
+
+        </div>
+    </div>
+    <!-- subview right -->
+
+</div>
+<!-- test view -->
+            <!-- category view -->
+            
+
+
+    <div id='exception-view' class='view hide'>
+
+        <section id='controls'>
+            <div class='controls grey lighten-4'>
+                <!-- search -->
+                <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                    <a href="#" class='search-div'>
+                        <i class='material-icons'>search</i> Search
+                    </a>
+
+                    <div class='input-field left hide'>
+                        <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                    </div>
+                </div>
+                <!-- search -->
+            </div>
+        </section>
+
+        <div class='subview-left left'>
+
+            <div class='view-summary'>
+                <h5>Exceptions</h5>
+                <ul id='exception-collection' class='exception-collection'>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class='subview-right left'>
+            <div class='view-summary'>
+                <h5 class='exception-name'></h5>
+            </div>
+        </div>
+    </div>
+<!-- exception view -->
+            
+
+
+<div id='dashboard-view' class='view hide'>
+    <div class='card-panel transparent np-v'>
+        <h5>Dashboard</h5>
+
+        <div class='row'>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Features</span>                     <div class='panel-lead'>6</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Scenarios</span>                     <div class='panel-lead'>21</div>
+                </div>
+            </div>
+                <div class='col s2'>
+                    <div class='card-panel r'>
+                        Steps
+                        <div class='panel-lead'>42</div>
+                    </div>
+                </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Start
+                    <div class='panel-lead'>29/03/2020 18:31:06</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    End
+                    <div class='panel-lead'>29/03/2020 18:36:32</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Time Taken
+                    <div class='panel-lead'>00:05:26.3809270</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- dashboard view -->
+            
+
+
+<!-- exception view -->
+
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+			    passParent: 0,
+			    failParent: 6,
+			    fatalParent: 0,
+			    errorParent: 0,
+			    warningParent: 0,
+			    skipParent: 0,
+				
+			    passChild: 0,
+			    failChild: 21,
+			    fatalChild: 0,
+			    errorChild: 0,
+			    warningChild: 0,
+			    skipChild: 0,
+			    infoChild: 0,
+				
+			    passGrandChild: 21,
+			    failGrandChild: 21,
+			    fatalGrandChild: 0,
+			    errorGrandChild: 0,
+			    warningGrandChild: 0,
+			    skipGrandChild: 0,
+			    infoGrandChild: 0
+			};
+		</script>
+
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports-csharp/e468054d67d93c2fd9c8f0f60e31a7ea09fa3bf6/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+			</body>
+	
+</html>
